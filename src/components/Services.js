@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import ServiceItem from "./Items/ServiceItem";
+import Card from "./UI/Card";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -20,15 +22,17 @@ const Services = () => {
 
   return (
     <div className="content">
-      <h1>Services</h1>
+      <h1>
+        Services <em>{services.length} total</em>
+      </h1>
 
-      <ul>
-        {services.map((service) => (
-          <li key={service.Name}>
-            {service.Name} - {service.InstanceCount} instance
-          </li>
-        ))}
-      </ul>
+      <Card>
+        <ul>
+          {services.map((service) => (
+            <ServiceItem key={service.Name} service={service} />
+          ))}
+        </ul>
+      </Card>
     </div>
   );
 };

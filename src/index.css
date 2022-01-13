@@ -19,9 +19,9 @@ body {
   padding: 16px;
   text-decoration: none;
 }
- 
+
 .sidebar a.active {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
 }
 
@@ -42,8 +42,12 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -51,4 +55,9 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+
+em {
+  font-size: 15px;
+  font-weight: lighter;
 }
