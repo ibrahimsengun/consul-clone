@@ -18,8 +18,6 @@ const Services = () => {
     getServices();
   }, []);
 
-  console.log(services);
-
   return (
     <div className="content">
       <h1>

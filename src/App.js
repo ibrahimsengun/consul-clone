@@ -6,14 +6,15 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Services from "./components/Services";
 import Nodes from "./components/Nodes";
 import KeyValue from "./components/KeyValue";
+import KeyValueEdit from "./components/KeyValueEdit";
 
 const App = () => {
-  const [dataCenter, setDataCenter] = useState();
+  const [datacenter, setDatacenter] = useState();
 
   useEffect(() => {
     async function fetchData() {
       axios.get("http://localhost:8500/v1/catalog/datacenters").then((res) => {
-        setDataCenter(res.data);
+        setDatacenter(res.data);
       });
     }
 
@@ -22,14 +23,15 @@ const App = () => {
 
   return (
     <Fragment>
-      <h1 style={{ backgroundColor: "gray" }}>Datacenter: {dataCenter}</h1>
+      <h1>Datacenter: {datacenter}</h1>
       <BrowserRouter>
         <Navigation />
         <Routes>
           <Route path="/" element={<Services />} />
           <Route path="/services" element={<Services />} />
           <Route path="/nodes" element={<Nodes />} />
-          <Route path="/kv" element={<KeyValue />} />
+          <Route path="/kv" element={<KeyValue datacenter={datacenter} />} />
+          <Route path="/kv/:value/edit" element={<KeyValueEdit />} />
         </Routes>
       </BrowserRouter>
     </Fragment>

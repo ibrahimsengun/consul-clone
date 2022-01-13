@@ -18,8 +18,6 @@ const Nodes = () => {
     getNodes();
   }, []);
 
-  console.log(nodes);
-
   return (
     <div className="content">
       <h1>
