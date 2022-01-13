@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import KVItem from "./Items/KVItem";
 import Card from "./UI/Card";
 
 const KeyValue = ({ datacenter }) => {
   const [keyValue, setKeyValue] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getKeyValues() {
@@ -18,9 +21,15 @@ const KeyValue = ({ datacenter }) => {
     getKeyValues();
   }, [datacenter]);
 
+  const clickHandler = () => {
+    navigate("/kv/create");
+  };
+
   return (
     <div className="content">
       <h1>Key / Value</h1>
+      <button onClick={clickHandler}>Create</button>
+      <hr />
       <Card>
         <ul>
           {keyValue.map((value) => (

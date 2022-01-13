@@ -7,6 +7,7 @@ import Services from "./components/Services";
 import Nodes from "./components/Nodes";
 import KeyValue from "./components/KeyValue";
 import KeyValueEdit from "./components/KeyValueEdit";
+import KeyValueCreate from "./components/KeyValueCreate";
 
 const App = () => {
   const [datacenter, setDatacenter] = useState();
@@ -32,6 +33,10 @@ const App = () => {
           <Route path="/nodes" element={<Nodes />} />
           <Route path="/kv" element={<KeyValue datacenter={datacenter} />} />
           <Route path="/kv/:value/edit" element={<KeyValueEdit />} />
+          <Route
+            path="/kv/create"
+            element={<KeyValueCreate datacenter={datacenter} />}
+          />
         </Routes>
       </BrowserRouter>
     </Fragment>
